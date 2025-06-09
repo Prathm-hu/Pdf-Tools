@@ -10,6 +10,7 @@ use App\Http\Controllers\JsonToPdfController;
 use App\Http\Controllers\JsonToTableController;
 use App\Http\Controllers\JsonViewerController;
 use App\Http\Controllers\LogsController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MergePdfController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PdfPageNumberController;
@@ -47,6 +48,7 @@ Route::middleware(['blocked'])->group(function () {
     Route::get('/json_viewer', [JsonViewerController::class, 'form'])->name('jsonViewer.form');
     Route::get('/code_formatter', [CodeFormatterController::class, 'formatterForm'])->name('formatter');
     Route::get('/json_to_table', [JsonToTableController::class, 'jsonToTableForm'])->name('jsonToTable.form');
+    Route::post('/send-mail', [MailController::class, 'sendSubscriptionEmail'])->name('sendMail');
 });
 
 // admin 
